@@ -22,10 +22,10 @@ st.subheader("Name")
 st.write("""
 Welcome to our Streamlit Web Development Lab01 app! You can navigate between the pages using the sidebar to the left. The following pages are:
 
-1. Info: You can find some info about me!
-2.
-3.
-4.
+1. Portfolio: You can find some info about me!
+2. Quiz: Take a quiz and find your emotional intelligence!
+
+
 
 """)
 
