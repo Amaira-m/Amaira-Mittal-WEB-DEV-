@@ -80,39 +80,53 @@ def run():
     st.markdown("---")
 
 
-    if st.button("Calculate My EQ"):
+   #ques 6 - EXTRA CREDIT
+    st.subheader("6. Conflict Management")
+    q7 = st.select_slider( #NEW
+        "How do you handle disagreements?",
+        options=["Avoidance", "Compromise", "Talk it out"]
+    )
+    
+    if q7 == "Talk it out":
+        score += 10
+    elif q7 == "Compromise":
+        score += 5
+        
+    #ques 7 - EXTRA CREDIT
+    st.subheader("7. Resilience")
+    q6 = st.toggle("Do you view failures as learning opportunities or speed bumps?", key="resilience_toggle") #NEW (Added tag)
+    if q6:
+        score += 10
+
+    #ques 8 - EXTRA CREDIT
+    st.subheader("8. Mindfulness")
+    q8 = st.text_input("Briefly describe one emotion you felt throughout the day today", key="mindfulness_input") #NEW
+    if len(q8) > 2:
+        
+        score += 5
+        
+    st.markdown("---")
+
+    if st.button("Calculate My EQ", key="calc_button"):
         st.write("Calculating score...")
+        
         my_bar = st.progress(0)
         for percent_complete in range(100):
             my_bar.progress(percent_complete + 1)
 
         st.subheader("Your Total Score: {}".format(score))
 
-
-        if score >= 35:
+        if score >= 50:
             st.success("Result: High Emotional Intelligence!")
-            st.write("You have a strong grasp of your own emotions and those of others. You likely excel in leadership and conflict resolution.")
-            st.balloons() #NEW - Celebration for high score
-        elif score >= 20:
+            st.write("You have a strong grasp of your own emotions and those of others.")
+            st.balloons() #NEW
+            
+        elif score >= 25:
             st.info("Result: Average Emotional Intelligence")
-            st.write("You have a balanced approach to emotions, but there is room to grow in terms of empathy and self-regulation.")
+            st.write("There is room to grow!!")
+            
         else:
             st.warning("Result: Developing Emotional Intelligence")
-            st.write("You might find it challenging to navigate emotional situations. Focusing on self-awareness exercises could be very beneficial.")
-        
-        
-        
-
-    
+            st.write("Focusing on self-awareness exercises could be very beneficial!!!!")
 
 run()
-
-        
-    
-    
-         
-        
-
-    
-
-    
